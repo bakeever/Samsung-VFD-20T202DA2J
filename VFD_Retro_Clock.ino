@@ -85,29 +85,24 @@ void printTime()
   Serial.print(String(rtc.hour()) + ":"); // Print hour
   vfd.print(String(rtc.hour()) + ":"); // Print hour
 
-  if (rtc.minute() < 1)
+  if (rtc.minute() < 10)
   {
     Serial.print('0'); // Print leading '0' for minute
     vfd.print('0'); // Print leading '0' for minute
   }
-  else
-  {
-    Serial.print(String(rtc.minute()) + ":"); // Print minute
-    vfd.print(String(rtc.minute()) + ":"); // Print minute
-  }
+  Serial.print(String(rtc.minute()) + ":"); // Print minute
+  vfd.print(String(rtc.minute()) + ":"); // Print minute
+ 
 
 
-  if (rtc.second() < 1)
+  if (rtc.second() < 10)
   {
     Serial.print('0'); // Print leading '0' for second
     vfd.print('0'); // Print leading '0' for second
-    vfd.print(String(rtc.second())); // Print second
   }
-  else
-  {
-    Serial.print(String(rtc.second())); // Print second
-    vfd.print(String(rtc.second())); // Print second
-  }
+  Serial.print(String(rtc.second())); // Print second
+  vfd.print(String(rtc.second())); // Print second
+  
   if (rtc.is12Hour()) // If we're in 12-hour mode
   {
     //vfd.noDisplay();
@@ -150,4 +145,4 @@ void printTime()
 #endif
   Serial.println(String(rtc.year()));        // Print year
   vfd.print(String(rtc.year()));        // Print year
-}
+  }
